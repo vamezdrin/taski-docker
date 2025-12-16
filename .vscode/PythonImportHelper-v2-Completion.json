@@ -80,6 +80,46 @@
         "documentation": {}
     },
     {
+        "label": "HTTPStatus",
+        "importPath": "http",
+        "description": "http",
+        "isExtraImport": true,
+        "detail": "http",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "views",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
         "label": "Response",
         "importPath": "rest_framework.response",
         "description": "rest_framework.response",
@@ -110,14 +150,6 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "views",
-        "importPath": "api",
-        "description": "api",
-        "isExtraImport": true,
-        "detail": "api",
         "documentation": {}
     },
     {
@@ -213,6 +245,15 @@
         "description": "backend.api.serializers",
         "peekOfCode": "class TaskSerializer(serializers.ModelSerializer):\n    \"\"\"Сериализатор для задач.\"\"\"\n    class Meta:\n        \"\"\"Мета класс.\"\"\"\n        model = Task\n        fields = ('id', 'title', 'description', 'completed')",
         "detail": "backend.api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskiAPITestCase",
+        "kind": 6,
+        "importPath": "backend.api.tests",
+        "description": "backend.api.tests",
+        "peekOfCode": "class TaskiAPITestCase(TestCase):\n    \"\"\"Тестирование.\"\"\"\n    def setUp(self):\n        \"\"\"Подготовка данных.\"\"\"\n        self.guest_client = Client()\n    def test_list_exists(self):\n        \"\"\"Проверка доступности списка задач.\"\"\"\n        response = self.guest_client.get('/api/tasks/')\n        self.assertEqual(response.status_code, HTTPStatus.OK)\n    def test_task_creation(self):",
+        "detail": "backend.api.tests",
         "documentation": {}
     },
     {
