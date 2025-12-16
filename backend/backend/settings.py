@@ -1,3 +1,4 @@
+"""Докстринг для settings."""
 from pathlib import Path
 import os
 

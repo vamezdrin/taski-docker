@@ -184,7 +184,7 @@
         "kind": 6,
         "importPath": "backend.api.admin",
         "description": "backend.api.admin",
-        "peekOfCode": "class TaskAdmin(admin.ModelAdmin):\n    list_display = ('title', 'description', 'completed')\nadmin.site.register(Task, TaskAdmin)",
+        "peekOfCode": "class TaskAdmin(admin.ModelAdmin):\n    \"\"\"Регистрайия задачи в админ панели.\"\"\"\n    list_display = ('title', 'description', 'completed')\nadmin.site.register(Task, TaskAdmin)",
         "detail": "backend.api.admin",
         "documentation": {}
     },
@@ -193,7 +193,7 @@
         "kind": 6,
         "importPath": "backend.api.apps",
         "description": "backend.api.apps",
-        "peekOfCode": "class ApiConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'api'",
+        "peekOfCode": "class ApiConfig(AppConfig):\n    \"\"\"Докстринг для класса.\"\"\"\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'api'",
         "detail": "backend.api.apps",
         "documentation": {}
     },
@@ -202,7 +202,7 @@
         "kind": 6,
         "importPath": "backend.api.models",
         "description": "backend.api.models",
-        "peekOfCode": "class Task(models.Model):\n    title = models.CharField(verbose_name='Заголовок', max_length=120)\n    description = models.TextField()\n    completed = models.BooleanField(default=False)\n    def _str_(self):\n        return self.title",
+        "peekOfCode": "class Task(models.Model):\n    \"\"\"Задача.\"\"\"\n    title = models.CharField(verbose_name='Заголовок', max_length=120)\n    description = models.TextField()\n    completed = models.BooleanField(default=False)\n    def _str_(self):\n        return self.title",
         "detail": "backend.api.models",
         "documentation": {}
     },
@@ -211,7 +211,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers",
         "description": "backend.api.serializers",
-        "peekOfCode": "class TaskSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = ('id', 'title', 'description', 'completed')",
+        "peekOfCode": "class TaskSerializer(serializers.ModelSerializer):\n    \"\"\"Сериализатор для задач.\"\"\"\n    class Meta:\n        \"\"\"Мета класс.\"\"\"\n        model = Task\n        fields = ('id', 'title', 'description', 'completed')",
         "detail": "backend.api.serializers",
         "documentation": {}
     },
@@ -220,7 +220,7 @@
         "kind": 6,
         "importPath": "backend.api.views",
         "description": "backend.api.views",
-        "peekOfCode": "class TaskView(viewsets.ModelViewSet):\n    serializer_class = TaskSerializer\n    queryset = Task.objects.all()\n    def destroy(self, *args, **kwargs):\n        serializer = self.get_serializer(self.get_object())\n        super().destroy(*args, **kwargs)\n        return Response(serializer.data, status=status.HTTP_200_OK)",
+        "peekOfCode": "class TaskView(viewsets.ModelViewSet):\n    \"\"\"Представление для задач.\"\"\"\n    serializer_class = TaskSerializer\n    queryset = Task.objects.all()\n    def destroy(self, *args, **kwargs):\n        \"\"\"Докстринг для метода.\"\"\"\n        serializer = self.get_serializer(self.get_object())\n        super().destroy(*args, **kwargs)\n        return Response(serializer.data, status=status.HTTP_200_OK)",
         "detail": "backend.api.views",
         "documentation": {}
     },
